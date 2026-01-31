@@ -1,5 +1,16 @@
 {
+  "name": "choozify-mvp",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "get-zones": "tsx utils/supabase/get-zones.ts",
+    "get-zones-http": "tsx utils/supabase/raw-http-example.ts",
+  },
   "devDependencies": {
-    "@supabase/supabase-js": "^2.93.3"
+    "@supabase/supabase-js": "^2.93.3",
+    "@types/node": "^22.10.5",
+    "dotenv": "^16.4.7",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
   }
 }

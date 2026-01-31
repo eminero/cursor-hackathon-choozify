@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "get-zones": "tsx utils/supabase/get-zones.ts",
-    "get-zones-http": "tsx utils/supabase/raw-http-example.ts",
+    "get-zones-http": "tsx utils/supabase/raw-http-example.ts"
   },
   "devDependencies": {
     "@supabase/supabase-js": "^2.93.3",

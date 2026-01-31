@@ -8,6 +8,7 @@ Act as a Senior Full Stack Developer. We are building an MVP for "RentalMatch", 
 - **AI Integration:** Vercel AI SDK + OpenAI (for the Chatbot).
 - **Maps/Geo:** React-Leaflet and **PostGIS extension** enabled in Supabase.
 - **State:** React Query.
+- **Code Quality & Format**: ESLint & Prettier
 
 ## 2. User Roles & Core Flows
 The app has three roles: `landlord`, `tenant`, `admin`.

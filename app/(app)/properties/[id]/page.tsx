@@ -64,7 +64,7 @@ export default async function PropertyDetailPage({
           {/* Thumbnail Grid */}
           {images.length > 1 && (
             <div className="grid grid-cols-3 gap-4">
-              {images.slice(1).map((image, index) => (
+              {images.slice(1).map((image: { url: string; alt: string }, index: number) => (
                 <div key={index} className="relative h-24 w-full rounded-lg overflow-hidden">
                   <Image
                     src={image.url}

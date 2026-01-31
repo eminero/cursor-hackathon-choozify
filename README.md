@@ -21,24 +21,26 @@ Landing page estática para presentar el proyecto Choozify en la hackathon.
   - Stack tecnológico
   - Footer con información de contacto
 
-## Despliegue en Render
+## 🚀 Despliegue en Render
 
-Para desplegar esta landing page en Render:
+### Guía Rápida
 
-1. **Opción 1: Static Site**
-   - Conecta tu repositorio a Render
-   - Selecciona "Static Site" como tipo de servicio
-   - Build Command: (dejar vacío)
-   - Publish Directory: `/` (raíz del proyecto)
+1. **Prepara tu repositorio en GitHub/GitLab/Bitbucket**
+2. **Crea una cuenta en [Render](https://render.com)**
+3. **Crea un nuevo "Static Site"**
+4. **Conecta tu repositorio**
+5. **Configuración:**
+   - **Build Command:** (dejar vacío)
+   - **Publish Directory:** (dejar vacío o `/`)
+6. **¡Despliega!**
 
-2. **Opción 2: Usando un servidor simple**
-   - Puedes usar cualquier servidor estático como `serve` o `http-server`
-   - O simplemente apuntar Render a los archivos estáticos
+### 📖 Guía Detallada
 
-3. **Configuración recomendada en Render:**
-   - **Build Command:** (vacío)
-   - **Publish Directory:** `/`
-   - **Environment:** Static Site
+Para una guía paso a paso completa, consulta el archivo **[DEPLOY.md](./DEPLOY.md)** que incluye:
+- Instrucciones detalladas paso a paso
+- Configuración completa
+- Solución de problemas comunes
+- Checklist de verificación
 
 ## Desarrollo Local
 

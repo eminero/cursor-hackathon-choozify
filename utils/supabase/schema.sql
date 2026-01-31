@@ -202,6 +202,21 @@ CREATE POLICY "Users can view own profile"
   ON public.profiles FOR SELECT
   USING (auth.uid() = id);
 
+-- Allow landlords to view tenant profiles when they have applied to landlord's properties
+DROP POLICY IF EXISTS "Landlords can view applicant profiles" ON public.profiles;
+CREATE POLICY "Landlords can view applicant profiles"
+  ON public.profiles FOR SELECT
+  TO authenticated
+  USING (
+    EXISTS (
+      SELECT 1 
+      FROM public.applications
+      INNER JOIN public.properties ON applications.property_id = properties.id
+      WHERE applications.tenant_id = profiles.id
+      AND properties.landlord_id = auth.uid()
+    )
+  );
+
 DROP POLICY IF EXISTS "Users can update own profile" ON public.profiles;
 CREATE POLICY "Users can update own profile"
   ON public.profiles FOR UPDATE

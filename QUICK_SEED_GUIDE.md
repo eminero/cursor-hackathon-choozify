@@ -3,6 +3,7 @@
 ## TL;DR - Copy & Paste This
 
 ### Step 1: Go to Supabase Dashboard
+
 https://app.supabase.com → Your Project → SQL Editor
 
 ### Step 2: Run This SQL
@@ -22,19 +23,19 @@ https://app.supabase.com → Your Project → SQL Editor
 ### 3 New Properties
 
 1. **Oeste - Family Home** ($1,400/mo, 3 bed, pets OK) - Ana
-2. **Sur - Budget Apartment** ($850/mo, 2 bed, pets OK) - Carlos  
+2. **Sur - Budget Apartment** ($850/mo, 2 bed, pets OK) - Carlos
 3. **Providencia - Premium Penthouse** ($2,500/mo, 3 bed, no pets) - Ana
 
 ### 6 New Applications
 
-| Tenant | Property | Status | Eligible |
-|--------|----------|--------|----------|
-| Maria → Oeste | Submitted | ✅ Yes |
-| Luis → Sur | Submitted | ✅ Yes |
-| Maria → Sur | Reviewing | ✅ Yes |
-| Juan → Oeste | Accepted | ✅ Yes |
+| Tenant             | Property  | Status             | Eligible |
+| ------------------ | --------- | ------------------ | -------- |
+| Maria → Oeste      | Submitted | ✅ Yes             |
+| Luis → Sur         | Submitted | ✅ Yes             |
+| Maria → Sur        | Reviewing | ✅ Yes             |
+| Juan → Oeste       | Accepted  | ✅ Yes             |
 | Juan → Providencia | Submitted | ❌ No (low income) |
-| Luis → Oeste | Rejected | ❌ No (low income) |
+| Luis → Oeste       | Rejected  | ❌ No (low income) |
 
 ---
 
@@ -60,6 +61,7 @@ https://app.supabase.com → Your Project → SQL Editor
 ## Application Status Breakdown
 
 After seeding:
+
 - 🟡 **5 Submitted** (pending review)
 - 🔵 **2 Reviewing** (in progress)
 - 🟢 **1 Accepted** (approved)
@@ -84,6 +86,7 @@ SELECT COUNT(*) as total_applications FROM applications;
 ## Full Documentation
 
 For complete details, see:
+
 - **`utils/supabase/SEED_DATA_README.md`** - Complete seed data guide
 - **`utils/supabase/seed-additional-properties.sql`** - The SQL file to run
 

@@ -7,7 +7,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Choozify - Encuentra tu hogar ideal con IA',
-  description: 'Marketplace inteligente que conecta arrendadores y arrendatarios con tecnología de IA',
+  description:
+    'Marketplace inteligente que conecta arrendadores y arrendatarios con tecnología de IA',
 };
 
 export default function RootLayout({

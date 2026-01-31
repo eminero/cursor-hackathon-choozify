@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+
+# Vercel
+.vercel/
+
+# Environment files
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# Database
+*.sql
+*.db
+
+# IDE
+.vscode/
+.idea/
+.cursor/
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+
+# Generated types
+types/database.ts
+
+# Misc
+*.min.js
+*.min.css

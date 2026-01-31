@@ -31,7 +31,7 @@ export async function createClient() {
 // Helper to get the current user with profile
 export async function getCurrentUser() {
   const supabase = await createClient();
-  
+
   const {
     data: { user },
     error: authError,
@@ -42,11 +42,7 @@ export async function getCurrentUser() {
   }
 
   // Fetch the user's profile
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('*')
-    .eq('id', user.id)
-    .single();
+  const { data: profile } = await supabase.from('profiles').select('*').eq('id', user.id).single();
 
   return { user, profile };
 }

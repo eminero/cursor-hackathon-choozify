@@ -7,6 +7,7 @@
 The feature won't work without this migration!
 
 **Option A: Supabase Dashboard (Easiest)**
+
 1. Open your Supabase project: https://app.supabase.com
 2. Go to **SQL Editor**
 3. Copy and paste this SQL:
@@ -19,7 +20,7 @@ CREATE POLICY "Landlords can view applicant profiles"
   TO authenticated
   USING (
     EXISTS (
-      SELECT 1 
+      SELECT 1
       FROM public.applications
       INNER JOIN public.properties ON applications.property_id = properties.id
       WHERE applications.tenant_id = profiles.id
@@ -32,6 +33,7 @@ CREATE POLICY "Landlords can view applicant profiles"
 5. You should see: "Success. No rows returned"
 
 **Option B: Use the migration file**
+
 ```bash
 # File location:
 cat utils/supabase/migrations/add_landlord_view_tenant_profiles_policy.sql
@@ -42,15 +44,17 @@ cat utils/supabase/migrations/add_landlord_view_tenant_profiles_policy.sql
 ### Step 2: Verify Your Test Data
 
 Make sure you have:
+
 - ✅ At least one landlord user
-- ✅ At least one tenant user  
+- ✅ At least one tenant user
 - ✅ At least one property owned by the landlord
 - ✅ At least one application from tenant to landlord's property
 
 **Quick test data insert:**
+
 ```sql
 -- Check existing applications
-SELECT 
+SELECT
   a.id,
   a.status,
   t.email as tenant_email,
@@ -65,6 +69,7 @@ JOIN profiles l ON p.landlord_id = l.id;
 ### Step 3: Test the Feature
 
 1. **Log in as a landlord**
+
    ```
    Email: landlord.test@example.com
    Password: password123
@@ -96,20 +101,26 @@ After migration, verify these work:
 ## 🐛 Troubleshooting
 
 ### Problem: "Applications page is blank"
+
 **Solution:** Check browser console for errors. Most likely the migration wasn't run.
 
 ### Problem: "Row level security policy violated"
+
 **Solution:** Run the migration SQL. This adds the required RLS policy.
 
 ### Problem: "Can't see tenant details"
+
 **Symptom:** Application loads but profile fields show empty or N/A
-**Solution:** 
+**Solution:**
+
 1. Run the migration
 2. Clear browser cache
 3. Log out and log back in
 
 ### Problem: "No applications showing"
+
 **Solution:** Make sure you have test applications in the database:
+
 ```sql
 -- Check applications for your landlord account
 SELECT * FROM applications a
@@ -118,7 +129,9 @@ WHERE p.landlord_id = auth.uid();
 ```
 
 ### Problem: "Accept/Reject buttons don't work"
+
 **Solution:** Check:
+
 1. Browser console for errors
 2. Network tab for failed API calls
 3. Verify you're logged in as a landlord
@@ -126,6 +139,7 @@ WHERE p.landlord_id = auth.uid();
 ## 📱 Feature Navigation
 
 ### From Dashboard:
+
 ```
 Dashboard → "Ver Aplicaciones" button → Applications List
 Dashboard → "Aplicaciones Pendientes" card → Applications List
@@ -133,6 +147,7 @@ Dashboard → Recent Applications → Click item → Application Detail
 ```
 
 ### From Navbar:
+
 ```
 Top Navigation → "Aplicaciones" link → Applications List
 Applications List → Click any card → Application Detail
@@ -154,17 +169,20 @@ Applications List → Click any card → Application Detail
 ## 📊 What Landlords Can See
 
 ### Tenant Financial Info:
+
 - Monthly income (with requirement comparison)
 - Credit score (with requirement comparison)
 - Employment type (with allowed types check)
 
 ### Tenant Lifestyle:
+
 - Has pets? (and property compatibility)
 - Smokes? (and property compatibility)
 - Needs parking? (and property availability)
 - Preferred zones
 
 ### Eligibility Status:
+
 - ✅ Green banner: "Cumple todos los requisitos"
 - ❌ Red banner: "No cumple algunos requisitos"
 - Individual ✓/✗ for each criterion
@@ -172,6 +190,7 @@ Applications List → Click any card → Application Detail
 ## 🔒 Security Notes
 
 The feature is secure:
+
 - ✅ Landlords can ONLY see applicants to their own properties
 - ✅ Row-Level Security (RLS) enforced at database level
 - ✅ API endpoints verify landlord ownership

@@ -11,9 +11,7 @@ interface Zone {
  * @returns Array of Zone objects or null if error occurs
  */
 export async function getZones(): Promise<Zone[] | null> {
-  const { data, error } = await supabase
-    .from('zones')
-    .select('*');
+  const { data, error } = await supabase.from('zones').select('*');
 
   if (error) {
     console.error('Error fetching zones:', error.message);
@@ -49,9 +47,9 @@ const isMainModule = import.meta.url === `file://${process.argv[1]}`;
 if (isMainModule) {
   (async () => {
     console.log('Fetching all zones...\n');
-    
+
     const zones = await getZones();
-    
+
     if (zones) {
       console.log(`Found ${zones.length} zones:\n`);
       zones.forEach((zone, index) => {
@@ -63,7 +61,7 @@ if (isMainModule) {
     // Example: Fetch specific zone
     console.log('Fetching Providencia zone...\n');
     const providencia = await getZoneByName('Providencia');
-    
+
     if (providencia) {
       console.log('Providencia zone details:');
       console.log(JSON.stringify(providencia, null, 2));

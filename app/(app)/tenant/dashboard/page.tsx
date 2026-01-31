@@ -1,5 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
-import { getCurrentUser } from '@/lib/supabase/server';
+import { createClient, getCurrentUser } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -34,9 +33,7 @@ export default async function TenantDashboardPage() {
         <h1 className="text-3xl font-bold text-gray-900 mb-2">
           Bienvenido, {userData.profile?.full_name || 'Arrendatario'}
         </h1>
-        <p className="text-gray-600">
-          Encuentra tu próximo hogar con nuestra ayuda de IA
-        </p>
+        <p className="text-gray-600">Encuentra tu próximo hogar con nuestra ayuda de IA</p>
       </div>
 
       {/* Profile completion status */}
@@ -52,14 +49,14 @@ export default async function TenantDashboardPage() {
                   className="h-full bg-gradient-to-r from-brand-500 to-purple-600"
                   style={{
                     width: `${
-                      (([
+                      ([
                         userData.profile?.income,
                         userData.profile?.score,
                         userData.profile?.employment_type,
                         userData.profile?.preferences_json?.preferred_zone_names?.length,
                       ].filter(Boolean).length /
                         4) *
-                        100)
+                      100
                     }%`,
                   }}
                 />
@@ -96,20 +93,12 @@ export default async function TenantDashboardPage() {
                   className="flex items-center justify-between p-4 border rounded-lg"
                 >
                   <div>
-                    <p className="font-medium">
-                      {application.properties?.zone_name}
-                    </p>
+                    <p className="font-medium">{application.properties?.zone_name}</p>
                     <p className="text-sm text-gray-600">
                       ${application.properties?.details_json?.price}/mes
                     </p>
                   </div>
-                  <Badge
-                    variant={
-                      application.status === 'accepted'
-                        ? 'default'
-                        : 'secondary'
-                    }
-                  >
+                  <Badge variant={application.status === 'accepted' ? 'default' : 'secondary'}>
                     {application.status}
                   </Badge>
                 </div>
@@ -121,9 +110,7 @@ export default async function TenantDashboardPage() {
 
       {/* Recommended Properties */}
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Propiedades Recomendadas
-        </h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-6">Propiedades Recomendadas</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {properties?.map((property: any) => (
             <PropertyCard key={property.id} property={property} />

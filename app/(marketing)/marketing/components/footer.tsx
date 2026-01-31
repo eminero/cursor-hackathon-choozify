@@ -8,8 +8,7 @@ export function Footer() {
               Choozify
             </h3>
             <p className="text-gray-400">
-              Marketplace inteligente que conecta arrendadores y arrendatarios con tecnología de
-              IA.
+              Marketplace inteligente que conecta arrendadores y arrendatarios con tecnología de IA.
             </p>
           </div>
           <div>

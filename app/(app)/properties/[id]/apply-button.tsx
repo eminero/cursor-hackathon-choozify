@@ -20,22 +20,22 @@ export function ApplyButton({ propertyId }: ApplyButtonProps) {
 
     try {
       const supabase = createClient();
-      
+
       // Get current user
-      const { data: { user } } = await supabase.auth.getUser();
-      
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
       if (!user) {
         throw new Error('No autenticado');
       }
 
       // Create application
-      const { error: insertError } = await supabase
-        .from('applications')
-        .insert({
-          tenant_id: user.id,
-          property_id: propertyId,
-          status: 'submitted',
-        });
+      const { error: insertError } = await supabase.from('applications').insert({
+        tenant_id: user.id,
+        property_id: propertyId,
+        status: 'submitted',
+      });
 
       if (insertError) throw insertError;
 
@@ -58,9 +58,7 @@ export function ApplyButton({ propertyId }: ApplyButtonProps) {
       >
         {loading ? 'Aplicando...' : 'Aplicar a esta propiedad'}
       </Button>
-      {error && (
-        <p className="mt-2 text-sm text-red-600">{error}</p>
-      )}
+      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
     </div>
   );
 }

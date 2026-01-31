@@ -1,5 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
-import { getCurrentUser } from '@/lib/supabase/server';
+import { createClient, getCurrentUser } from '@/lib/supabase/server';
 import { redirect, notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,11 +7,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, Bed, DollarSign, Car } from 'lucide-react';
 import { ApplyButton } from './apply-button';
 
-export default async function PropertyDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function PropertyDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const userData = await getCurrentUser();
 
@@ -53,25 +48,14 @@ export default async function PropertyDetailPage({
         <div className="space-y-4">
           {/* Main Image */}
           <div className="relative h-96 w-full rounded-lg overflow-hidden">
-            <Image
-              src={mainImage.url}
-              alt={mainImage.alt}
-              fill
-              className="object-cover"
-              priority
-            />
+            <Image src={mainImage.url} alt={mainImage.alt} fill className="object-cover" priority />
           </div>
           {/* Thumbnail Grid */}
           {images.length > 1 && (
             <div className="grid grid-cols-3 gap-4">
               {images.slice(1).map((image: { url: string; alt: string }, index: number) => (
                 <div key={index} className="relative h-24 w-full rounded-lg overflow-hidden">
-                  <Image
-                    src={image.url}
-                    alt={image.alt}
-                    fill
-                    className="object-cover"
-                  />
+                  <Image src={image.url} alt={image.alt} fill className="object-cover" />
                 </div>
               ))}
             </div>
@@ -109,12 +93,8 @@ export default async function PropertyDetailPage({
             <div>
               {existingApplication ? (
                 <div className="p-4 bg-brand-50 border border-brand-200 rounded-lg">
-                  <p className="text-brand-700 font-medium">
-                    Ya has aplicado a esta propiedad
-                  </p>
-                  <p className="text-sm text-brand-600">
-                    Estado: {existingApplication.status}
-                  </p>
+                  <p className="text-brand-700 font-medium">Ya has aplicado a esta propiedad</p>
+                  <p className="text-sm text-brand-600">Estado: {existingApplication.status}</p>
                 </div>
               ) : (
                 <ApplyButton propertyId={property.id} />
@@ -130,15 +110,11 @@ export default async function PropertyDetailPage({
             <CardContent className="space-y-2">
               <div className="flex items-center justify-between">
                 <span className="text-gray-600">Ingreso mínimo:</span>
-                <span className="font-medium">
-                  ${property.criteria_json.min_income}
-                </span>
+                <span className="font-medium">${property.criteria_json.min_income}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-gray-600">Score mínimo:</span>
-                <span className="font-medium">
-                  {property.criteria_json.min_score}
-                </span>
+                <span className="font-medium">{property.criteria_json.min_score}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-gray-600">Mascotas:</span>

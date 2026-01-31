@@ -5,10 +5,10 @@ import { supabase } from './client';
  * Expected structure for images_json array
  */
 export interface PropertyImage {
-  url: string;      // Full public URL from Supabase Storage
-  path: string;     // Storage path in the "properties" bucket
-  alt: string;      // Alt text for accessibility
-  order?: number;   // Optional: display order
+  url: string; // Full public URL from Supabase Storage
+  path: string; // Storage path in the "properties" bucket
+  alt: string; // Alt text for accessibility
+  order?: number; // Optional: display order
 }
 
 /**
@@ -26,7 +26,7 @@ export async function uploadPropertyImage(
   try {
     const fileExt = file.name.split('.').pop();
     const fileName = `${propertyId}/${Date.now()}.${fileExt}`;
-    
+
     // Upload to Supabase Storage
     const { data: uploadData, error: uploadError } = await supabase.storage
       .from('properties')
@@ -40,9 +40,7 @@ export async function uploadPropertyImage(
     }
 
     // Get public URL
-    const { data: urlData } = supabase.storage
-      .from('properties')
-      .getPublicUrl(fileName);
+    const { data: urlData } = supabase.storage.from('properties').getPublicUrl(fileName);
 
     const propertyImage: PropertyImage = {
       url: urlData.publicUrl,
@@ -131,9 +129,7 @@ export async function removeImageFromProperty(
     }
 
     // Delete from storage
-    const { error: deleteError } = await supabase.storage
-      .from('properties')
-      .remove([imagePath]);
+    const { error: deleteError } = await supabase.storage.from('properties').remove([imagePath]);
 
     if (deleteError) {
       console.error('Failed to delete image from storage:', deleteError);

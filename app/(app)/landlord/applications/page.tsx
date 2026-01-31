@@ -1,12 +1,11 @@
-import { createClient } from '@/lib/supabase/server';
-import { getCurrentUser } from '@/lib/supabase/server';
+import { createClient, getCurrentUser } from '@/lib/supabase/server';
 import { redirect } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Building2, Mail, Briefcase, DollarSign, Star } from 'lucide-react';
 import Link from 'next/link';
-import { Application, Profile, Property } from '@/types/database';
+import type { Application, Profile, Property } from '@/types/database';
 
 interface ApplicationWithDetails extends Application {
   profiles: Profile;
@@ -25,11 +24,13 @@ export default async function LandlordApplicationsPage() {
   // Fetch all applications to landlord's properties with tenant and property details
   const { data: applications, error } = await supabase
     .from('applications')
-    .select(`
+    .select(
+      `
       *,
       profiles!applications_tenant_id_fkey(*),
       properties!applications_property_id_fkey(*)
-    `)
+    `
+    )
     .eq('properties.landlord_id', userData.user.id)
     .order('created_at', { ascending: false });
 
@@ -54,16 +55,14 @@ export default async function LandlordApplicationsPage() {
   };
 
   // Group applications by status
-  const pendingApplications = typedApplications?.filter(a => a.status === 'submitted') || [];
-  const reviewingApplications = typedApplications?.filter(a => a.status === 'reviewing') || [];
-  const acceptedApplications = typedApplications?.filter(a => a.status === 'accepted') || [];
+  const pendingApplications = typedApplications?.filter((a) => a.status === 'submitted') || [];
+  const reviewingApplications = typedApplications?.filter((a) => a.status === 'reviewing') || [];
+  const acceptedApplications = typedApplications?.filter((a) => a.status === 'accepted') || [];
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">
-          Gestión de Aplicaciones
-        </h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Gestión de Aplicaciones</h1>
         <p className="text-gray-600">
           Revisa y gestiona las aplicaciones de arrendatarios a tus propiedades
         </p>
@@ -74,43 +73,31 @@ export default async function LandlordApplicationsPage() {
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Pendientes</CardTitle>
-            <Badge className="bg-yellow-100 text-yellow-800">
-              {pendingApplications.length}
-            </Badge>
+            <Badge className="bg-yellow-100 text-yellow-800">{pendingApplications.length}</Badge>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{pendingApplications.length}</div>
-            <p className="text-xs text-muted-foreground mt-1">
-              Requieren tu atención
-            </p>
+            <p className="text-xs text-muted-foreground mt-1">Requieren tu atención</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">En Revisión</CardTitle>
-            <Badge className="bg-blue-100 text-blue-800">
-              {reviewingApplications.length}
-            </Badge>
+            <Badge className="bg-blue-100 text-blue-800">{reviewingApplications.length}</Badge>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{reviewingApplications.length}</div>
-            <p className="text-xs text-muted-foreground mt-1">
-              En proceso de evaluación
-            </p>
+            <p className="text-xs text-muted-foreground mt-1">En proceso de evaluación</p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium">Aceptadas</CardTitle>
-            <Badge className="bg-green-100 text-green-800">
-              {acceptedApplications.length}
-            </Badge>
+            <Badge className="bg-green-100 text-green-800">{acceptedApplications.length}</Badge>
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{acceptedApplications.length}</div>
-            <p className="text-xs text-muted-foreground mt-1">
-              Arrendatarios aprobados
-            </p>
+            <p className="text-xs text-muted-foreground mt-1">Arrendatarios aprobados</p>
           </CardContent>
         </Card>
       </div>
@@ -182,9 +169,7 @@ export default async function LandlordApplicationsPage() {
                           <Star className="w-4 h-4 text-gray-500" />
                           <div>
                             <p className="text-xs text-gray-500">Score</p>
-                            <p className="font-semibold">
-                              {application.profiles?.score || 'N/A'}
-                            </p>
+                            <p className="font-semibold">{application.profiles?.score || 'N/A'}</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-2">
@@ -295,7 +280,8 @@ export default async function LandlordApplicationsPage() {
               <Building2 className="w-12 h-12 mx-auto mb-4 text-gray-400" />
               <p className="text-lg font-medium mb-2">No hay aplicaciones todavía</p>
               <p className="text-sm">
-                Las aplicaciones de arrendatarios aparecerán aquí cuando alguien aplique a tus propiedades.
+                Las aplicaciones de arrendatarios aparecerán aquí cuando alguien aplique a tus
+                propiedades.
               </p>
             </div>
           </CardContent>

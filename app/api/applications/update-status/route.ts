@@ -1,6 +1,6 @@
 import { createClient } from '@/lib/supabase/server';
-import { NextRequest, NextResponse } from 'next/server';
-import { ApplicationStatus } from '@/types/database';
+import { type NextRequest, NextResponse } from 'next/server';
+import type { ApplicationStatus } from '@/types/database';
 
 export async function POST(request: NextRequest) {
   try {
@@ -72,10 +72,7 @@ export async function POST(request: NextRequest) {
 
     if (updateError) {
       console.error('Error updating application:', updateError);
-      return NextResponse.json(
-        { error: 'Failed to update application status' },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: 'Failed to update application status' }, { status: 500 });
     }
 
     return NextResponse.json({ success: true, application: updatedApplication });

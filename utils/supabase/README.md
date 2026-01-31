@@ -16,6 +16,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 ### 2. Dependencies
 
 The following packages are installed:
+
 - `@supabase/supabase-js` - Supabase client library
 - `dotenv` - Environment variable management
 - `tsx` - TypeScript execution
@@ -24,6 +25,7 @@ The following packages are installed:
 ## Files
 
 ### `client.ts`
+
 Creates and exports a configured Supabase client instance that can be used throughout the application.
 
 ```typescript
@@ -31,22 +33,28 @@ import { supabase } from './utils/supabase/client';
 ```
 
 ### `get-zones.ts`
+
 Utility functions and CLI script for querying the zones table using the Supabase client.
 
 **Functions:**
+
 - `getZones()` - Fetches all zones from the database
 - `getZoneByName(zoneName: string)` - Fetches a specific zone by name
 
 ### `raw-http-example.ts`
+
 Example demonstrating raw HTTP GET requests to Supabase's PostgREST API without using the Supabase client library.
 
 **Functions:**
+
 - `fetchZonesViaHTTP()` - Fetches zones using native fetch API
 
 ### `property-images.ts`
+
 Utilities for managing property images stored in Supabase Storage and the `images_json` JSONB column.
 
 **Functions:**
+
 - `uploadPropertyImage(propertyId, file, altText)` - Uploads an image to Storage
 - `addImageToProperty(propertyId, image)` - Adds an image to a property's images array
 - `removeImageFromProperty(propertyId, imagePath)` - Removes an image from property and Storage
@@ -56,6 +64,7 @@ Utilities for managing property images stored in Supabase Storage and the `image
 **See:** `IMAGES_USAGE.md` for detailed documentation
 
 ### `example-property-with-images.ts`
+
 Example code demonstrating how to work with the `images_json` column on the properties table.
 
 ## Usage
@@ -81,6 +90,7 @@ npm run example-images
 ```
 
 **Output:**
+
 ```
 Fetching all zones...
 
@@ -122,11 +132,11 @@ console.log(providencia);
 
 The `zones` table has the following structure:
 
-| Column | Type | Description |
-|--------|------|-------------|
-| `zone_name` | TEXT (Primary Key) | Name of the zone (e.g., "Providencia") |
+| Column          | Type                  | Description                                          |
+| --------------- | --------------------- | ---------------------------------------------------- |
+| `zone_name`     | TEXT (Primary Key)    | Name of the zone (e.g., "Providencia")               |
 | `centroid_geom` | GEOMETRY(Point, 4326) | Geographic centroid point for proximity calculations |
-| `created_at` | TIMESTAMPTZ | Timestamp when the zone was created |
+| `created_at`    | TIMESTAMPTZ           | Timestamp when the zone was created                  |
 
 ## Row-Level Security (RLS)
 
@@ -149,6 +159,7 @@ GET https://pxwlwahpvhvextrakdkl.supabase.co/rest/v1/zones
 ```
 
 Under the hood, `supabase.from('zones').select('*')` generates the appropriate HTTP request with:
+
 - **Headers:** `apikey`, `Authorization`
 - **Query Parameters:** Field selection, filters, etc.
 

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { searchParamsSchema, searchPropertyFunction } from '@/lib/ai/search-params-schema';
 import OpenAI from 'openai';
@@ -28,10 +28,7 @@ export async function POST(request: NextRequest) {
       .single();
 
     if (!profile) {
-      return NextResponse.json(
-        { error: 'Perfil no encontrado' },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: 'Perfil no encontrado' }, { status: 404 });
     }
 
     // Parse request body
@@ -39,10 +36,7 @@ export async function POST(request: NextRequest) {
     const { message } = body;
 
     if (!message || typeof message !== 'string') {
-      return NextResponse.json(
-        { error: 'Mensaje inválido' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Mensaje inválido' }, { status: 400 });
     }
 
     // Call OpenAI to extract search parameters
@@ -125,10 +119,7 @@ export async function POST(request: NextRequest) {
 
     if (queryError) {
       console.error('Query error:', queryError);
-      return NextResponse.json(
-        { error: 'Error al buscar propiedades' },
-        { status: 500 }
-      );
+      return NextResponse.json({ error: 'Error al buscar propiedades' }, { status: 500 });
     }
 
     return NextResponse.json({
@@ -137,9 +128,6 @@ export async function POST(request: NextRequest) {
     });
   } catch (error) {
     console.error('Search error:', error);
-    return NextResponse.json(
-      { error: 'Error interno del servidor' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
   }
 }

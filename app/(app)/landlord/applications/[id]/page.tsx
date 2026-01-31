@@ -1,5 +1,4 @@
-import { createClient } from '@/lib/supabase/server';
-import { getCurrentUser } from '@/lib/supabase/server';
+import { createClient, getCurrentUser } from '@/lib/supabase/server';
 import { redirect, notFound } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -22,7 +21,7 @@ import {
   Calendar,
 } from 'lucide-react';
 import Link from 'next/link';
-import { Application, Profile, Property } from '@/types/database';
+import type { Application, Profile, Property } from '@/types/database';
 import { ApplicationActions } from './application-actions';
 
 interface ApplicationWithDetails extends Application {
@@ -47,11 +46,13 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
   // Fetch application with tenant and property details
   const { data: application, error } = await supabase
     .from('applications')
-    .select(`
+    .select(
+      `
       *,
       profiles!applications_tenant_id_fkey(*),
       properties!applications_property_id_fkey(*)
-    `)
+    `
+    )
     .eq('id', id)
     .single();
 
@@ -145,7 +146,9 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
         {/* Main Content - Tenant Profile */}
         <div className="lg:col-span-2 space-y-6">
           {/* Eligibility Status */}
-          <Card className={isEligible ? 'border-green-300 bg-green-50' : 'border-red-300 bg-red-50'}>
+          <Card
+            className={isEligible ? 'border-green-300 bg-green-50' : 'border-red-300 bg-red-50'}
+          >
             <CardContent className="pt-6">
               <div className="flex items-center gap-3">
                 {isEligible ? (
@@ -275,7 +278,8 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
                   <div>
                     <p className="text-sm font-medium">Estado de Historial</p>
                     <p className="text-xs text-gray-600 mt-1">
-                      El historial de renta detallado estará disponible cuando el arrendatario complete su perfil.
+                      El historial de renta detallado estará disponible cuando el arrendatario
+                      complete su perfil.
                     </p>
                   </div>
                   <Badge variant="secondary">En desarrollo</Badge>
@@ -428,9 +432,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span className="text-gray-600">Precio mensual:</span>
-                  <span className="font-semibold">
-                    ${propertyDetails.price?.toLocaleString()}
-                  </span>
+                  <span className="font-semibold">${propertyDetails.price?.toLocaleString()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Habitaciones:</span>
@@ -438,9 +440,7 @@ export default async function ApplicationDetailPage({ params }: PageProps) {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">Estacionamiento:</span>
-                  <span className="font-semibold">
-                    {propertyDetails.has_parking ? 'Sí' : 'No'}
-                  </span>
+                  <span className="font-semibold">{propertyDetails.has_parking ? 'Sí' : 'No'}</span>
                 </div>
               </div>
 

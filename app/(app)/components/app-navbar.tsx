@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { User } from '@supabase/supabase-js';
-import { Profile } from '@/types/database';
+import type { User } from '@supabase/supabase-js';
+import type { Profile } from '@/types/database';
 import { Button } from '@/components/ui/button';
 import { createClient } from '@/lib/supabase/browser';
 import { Home, Building2, Users, LogOut } from 'lucide-react';

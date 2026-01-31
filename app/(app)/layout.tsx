@@ -3,11 +3,7 @@ import { getCurrentUser } from '@/lib/supabase/server';
 import { AppNavbar } from './components/app-navbar';
 import { AIChatWidget } from '@/components/ai/ai-chat-widget';
 
-export default async function AppLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function AppLayout({ children }: { children: React.ReactNode }) {
   const userData = await getCurrentUser();
 
   if (!userData) {

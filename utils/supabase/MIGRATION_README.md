@@ -13,12 +13,14 @@ The current RLS policies on the `profiles` table only allow users to view their 
 
 **What it does:**
 Adds a new RLS policy called `"Landlords can view applicant profiles"` that allows a landlord to SELECT from the profiles table when:
+
 - The profile belongs to a tenant who has submitted an application
 - The application is for a property owned by the current user (landlord)
 
 **How to apply:**
 
 #### Option 1: Using Supabase Dashboard (Recommended)
+
 1. Go to your Supabase project dashboard
 2. Navigate to **SQL Editor**
 3. Copy the contents of `migrations/add_landlord_view_tenant_profiles_policy.sql`
@@ -26,12 +28,14 @@ Adds a new RLS policy called `"Landlords can view applicant profiles"` that allo
 5. You should see a success message: "Policy 'Landlords can view applicant profiles' created successfully"
 
 #### Option 2: Using Supabase CLI
+
 ```bash
 # If you have Supabase CLI installed
 supabase db push --file utils/supabase/migrations/add_landlord_view_tenant_profiles_policy.sql
 ```
 
 #### Option 3: Manual Execution
+
 ```sql
 -- Run this SQL in your database:
 DROP POLICY IF EXISTS "Landlords can view applicant profiles" ON public.profiles;
@@ -40,7 +44,7 @@ CREATE POLICY "Landlords can view applicant profiles"
   TO authenticated
   USING (
     EXISTS (
-      SELECT 1 
+      SELECT 1
       FROM public.applications
       INNER JOIN public.properties ON applications.property_id = properties.id
       WHERE applications.tenant_id = profiles.id
@@ -51,6 +55,7 @@ CREATE POLICY "Landlords can view applicant profiles"
 
 **Testing:**
 After applying this migration:
+
 1. Log in as a landlord user
 2. Navigate to `/landlord/applications`
 3. Click on any application
@@ -62,6 +67,7 @@ After applying this migration:
    - Preferred zones
 
 **Security Notes:**
+
 - This policy is secure and follows the principle of least privilege
 - Landlords can ONLY view profiles of tenants who have applied to their properties
 - Landlords cannot view profiles of random tenants
@@ -70,6 +76,7 @@ After applying this migration:
 
 **Rollback:**
 If you need to remove this policy:
+
 ```sql
 DROP POLICY IF EXISTS "Landlords can view applicant profiles" ON public.profiles;
 ```

@@ -42,8 +42,7 @@ export const searchPropertyFunction = {
       },
       zone_name: {
         type: 'string',
-        description:
-          'Nombre de la zona o barrio (ej: "Providencia", "Centro", "Norte")',
+        description: 'Nombre de la zona o barrio (ej: "Providencia", "Centro", "Norte")',
       },
       has_parking: {
         type: 'boolean',

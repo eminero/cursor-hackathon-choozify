@@ -7,28 +7,32 @@ Successfully connected to your Supabase instance and performed HTTP GET requests
 ## What Was Accomplished
 
 ### 1. ✅ Supabase Client Configuration
+
 - Updated `utils/supabase/client.ts` with environment variable loading
 - Added dotenv support for local development
 
 ### 2. ✅ Environment Setup
+
 - Created `.env` file with your Supabase credentials:
   - Project URL: `https://pxwlwahpvhvextrakdkl.supabase.co`
   - Anon Key: Configured and working
 
 ### 3. ✅ Database Configuration
+
 - Updated RLS policy on `zones` table to allow public read access
 - Synchronized `schema.sql` with the database changes
 
 ### 4. ✅ Query Utilities Created
+
 - **`get-zones.ts`**: Type-safe utility using Supabase client
   - `getZones()` - Fetch all zones
   - `getZoneByName(name)` - Fetch specific zone
-  
 - **`raw-http-example.ts`**: Direct HTTP GET demonstration
   - Shows underlying PostgREST API structure
   - Demonstrates authentication headers
 
 ### 5. ✅ Dependencies Installed
+
 ```json
 {
   "@supabase/supabase-js": "^2.93.3",
@@ -40,6 +44,7 @@ Successfully connected to your Supabase instance and performed HTTP GET requests
 ```
 
 ### 6. ✅ NPM Scripts Added
+
 ```json
 {
   "get-zones": "tsx utils/supabase/get-zones.ts",
@@ -50,6 +55,7 @@ Successfully connected to your Supabase instance and performed HTTP GET requests
 ## Test Results
 
 ### Zones Retrieved (5 total):
+
 1. **Centro** - Created: 2026-01-31T19:05:23.452866+00:00
 2. **Norte** - Created: 2026-01-31T19:05:23.452866+00:00
 3. **Sur** - Created: 2026-01-31T19:05:23.452866+00:00
@@ -89,15 +95,10 @@ const zones = await fetchZonesViaHTTP();
 import { supabase } from './utils/supabase/client';
 
 // Simple query
-const { data, error } = await supabase
-  .from('zones')
-  .select('*');
+const { data, error } = await supabase.from('zones').select('*');
 
 // With filter
-const { data, error } = await supabase
-  .from('zones')
-  .select('*')
-  .eq('zone_name', 'Providencia');
+const { data, error } = await supabase.from('zones').select('*').eq('zone_name', 'Providencia');
 ```
 
 ## HTTP Request Details

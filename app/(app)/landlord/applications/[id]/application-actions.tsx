@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, X, Clock } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { ApplicationStatus } from '@/types/database';
+import type { ApplicationStatus } from '@/types/database';
 
 interface ApplicationActionsProps {
   applicationId: number;

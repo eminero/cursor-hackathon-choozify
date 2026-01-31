@@ -13,6 +13,7 @@ Esta guía te ayudará a desplegar la landing page de Choozify en Render paso a 
 ### Paso 1: Preparar el Repositorio
 
 1. **Inicializa Git** (si aún no lo has hecho):
+
    ```bash
    git init
    git add .
@@ -44,15 +45,18 @@ Esta guía te ayudará a desplegar la landing page de Choozify en Render paso a 
 Completa el formulario con la siguiente información:
 
 #### Información Básica:
+
 - **Name**: `choozify-landing` (o el nombre que prefieras)
 - **Repository**: Selecciona tu repositorio de GitHub
 - **Branch**: `main` (o la rama donde está tu código)
 
 #### Configuración de Build:
+
 - **Build Command**: **DEJAR VACÍO** (no necesitas build para HTML estático)
 - **Publish Directory**: **DEJAR VACÍO** o poner `/` (raíz del proyecto)
 
 #### Configuración Avanzada (opcional):
+
 - **Environment**: `Static Site`
 - **Auto-Deploy**: `Yes` (se actualiza automáticamente cuando haces push)
 
@@ -85,6 +89,7 @@ Completa el formulario con la siguiente información:
 ### Variables de Entorno
 
 Para este proyecto no necesitas variables de entorno, pero si las necesitas en el futuro:
+
 1. Ve a **"Environment"** en la configuración de tu servicio
 2. Agrega las variables necesarias
 
@@ -124,7 +129,7 @@ choozify-landing/
 
 1. **Verifica el viewport** en `index.html`:
    ```html
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    ```
 
 ### El carrusel no funciona
@@ -140,6 +145,7 @@ choozify-landing/
 Cada vez que hagas cambios:
 
 1. **Haz commit de tus cambios**:
+
    ```bash
    git add .
    git commit -m "Descripción de los cambios"

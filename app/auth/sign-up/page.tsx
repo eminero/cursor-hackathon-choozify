@@ -31,7 +31,7 @@ export default function SignUpPage() {
         options: {
           data: {
             full_name: fullName,
-            role: role,
+            role,
           },
         },
       });
@@ -39,11 +39,8 @@ export default function SignUpPage() {
       if (error) throw error;
 
       // Redirect based on role
-      const dashboardPath = role === 'landlord' 
-        ? '/landlord/dashboard' 
-        : role === 'tenant' 
-        ? '/tenant/dashboard' 
-        : '/';
+      const dashboardPath =
+        role === 'landlord' ? '/landlord/dashboard' : role === 'tenant' ? '/tenant/dashboard' : '/';
 
       router.push(dashboardPath);
       router.refresh();
@@ -61,9 +58,7 @@ export default function SignUpPage() {
           <CardTitle className="text-3xl font-bold text-center bg-gradient-to-r from-brand-500 to-purple-600 bg-clip-text text-transparent">
             Choozify
           </CardTitle>
-          <CardDescription className="text-center text-lg">
-            Crea tu cuenta
-          </CardDescription>
+          <CardDescription className="text-center text-lg">Crea tu cuenta</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSignUp} className="space-y-4">

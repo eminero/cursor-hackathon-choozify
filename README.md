@@ -46,12 +46,14 @@ OPENAI_API_KEY=your-openai-api-key
 ```
 
 **Para obtener las credenciales de Supabase:**
+
 1. Ve a [Supabase Dashboard](https://app.supabase.com)
 2. Crea un nuevo proyecto o selecciona uno existente
 3. Ve a Settings > API
 4. Copia la `URL` y la `anon/public key`
 
 **Para obtener la API key de OpenAI:**
+
 1. Ve a [OpenAI Platform](https://platform.openai.com)
 2. Crea una cuenta o inicia sesión
 3. Ve a API Keys
@@ -119,6 +121,7 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 ## 🎯 Funcionalidades Principales
 
 ### Para Arrendatarios (Tenants)
+
 - ✅ Perfil completo con criterios de elegibilidad
 - ✅ Búsqueda de propiedades con IA (lenguaje natural)
 - ✅ Dashboard con propiedades recomendadas
@@ -126,12 +129,14 @@ Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 - ✅ Notificaciones de nuevas propiedades
 
 ### Para Arrendadores (Landlords)
+
 - ✅ Gestión de propiedades
 - ✅ Visualización de aplicaciones
 - ✅ Definir criterios de elegibilidad
 - ✅ Dashboard con estadísticas
 
 ### Características de IA
+
 - 🤖 Chatbot que entiende lenguaje natural
 - 🎯 Matching inteligente basado en criterios
 - 📍 Expansión geográfica inteligente
@@ -160,11 +165,13 @@ npm run get-zones-http      # Ejemplo HTTP raw
 ## 🌐 Rutas de la Aplicación
 
 ### Públicas
+
 - `/marketing` - Landing page
 - `/auth/sign-in` - Inicio de sesión
 - `/auth/sign-up` - Registro
 
 ### Autenticadas (role-based)
+
 - `/` - Redirige al dashboard según rol
 - `/tenant/dashboard` - Dashboard de arrendatario
 - `/landlord/dashboard` - Dashboard de arrendador
@@ -191,6 +198,7 @@ npm run get-zones-http      # Ejemplo HTTP raw
 ### Otras plataformas
 
 El proyecto es compatible con cualquier plataforma que soporte Next.js:
+
 - Netlify
 - Railway
 - DigitalOcean App Platform

@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { MapPin, Bed } from 'lucide-react';
-import { Property } from '@/types/database';
+import type { Property } from '@/types/database';
 
 interface PropertyCardProps {
   property: Property;
@@ -11,7 +11,8 @@ interface PropertyCardProps {
 
 export function PropertyCard({ property }: PropertyCardProps) {
   const firstImage = property.images_json?.[0];
-  const fallbackImage = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop';
+  const fallbackImage =
+    'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=300&fit=crop';
 
   return (
     <Link href={`/properties/${property.id}`}>
@@ -34,9 +35,7 @@ export function PropertyCard({ property }: PropertyCardProps) {
             <MapPin className="w-4 h-4" />
             <span className="text-sm">{property.zone_name}</span>
           </div>
-          <h3 className="font-semibold text-lg mb-2">
-            ${property.details_json.price}/mes
-          </h3>
+          <h3 className="font-semibold text-lg mb-2">${property.details_json.price}/mes</h3>
           <div className="flex items-center gap-4 text-sm text-gray-600">
             <div className="flex items-center gap-1">
               <Bed className="w-4 h-4" />

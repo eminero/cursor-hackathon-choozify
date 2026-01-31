@@ -15,9 +15,7 @@ export function HowItWorksSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-6">
                 1
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Para Arrendadores
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Para Arrendadores</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
                   <span className="text-brand-500 mr-2">•</span>
@@ -45,9 +43,7 @@ export function HowItWorksSection() {
               <div className="w-16 h-16 bg-gradient-to-br from-brand-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mb-6">
                 2
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Para Arrendatarios
-              </h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Para Arrendatarios</h3>
               <ul className="space-y-3 text-gray-600">
                 <li className="flex items-start">
                   <span className="text-brand-500 mr-2">•</span>

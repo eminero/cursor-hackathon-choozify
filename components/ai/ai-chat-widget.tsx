@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { PropertyCard } from '@/components/properties/property-card';
-import { Property } from '@/types/database';
+import type { Property } from '@/types/database';
 
 interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
@@ -122,24 +122,25 @@ export function AIChatWidget() {
         {messages.map((message, index) => (
           <div
             key={index}
-            className={`flex ${
-              message.role === 'user' ? 'justify-end' : 'justify-start'
-            }`}
+            className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             <div
               className={`max-w-[80%] ${
                 message.role === 'user'
                   ? 'bg-brand-500 text-white'
                   : message.role === 'system'
-                  ? 'bg-red-50 text-red-700 border border-red-200'
-                  : 'bg-gray-100 text-gray-900'
+                    ? 'bg-red-50 text-red-700 border border-red-200'
+                    : 'bg-gray-100 text-gray-900'
               } rounded-lg p-3`}
             >
               <p className="text-sm whitespace-pre-wrap">{message.content}</p>
               {message.properties && message.properties.length > 0 && (
                 <div className="mt-4 space-y-3">
                   {message.properties.slice(0, 3).map((property: Property) => (
-                    <div key={property.id} className="bg-white rounded-lg overflow-hidden shadow-sm">
+                    <div
+                      key={property.id}
+                      className="bg-white rounded-lg overflow-hidden shadow-sm"
+                    >
                       <PropertyCard property={property} />
                     </div>
                   ))}

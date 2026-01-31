@@ -9,6 +9,7 @@
 **Solutions:**
 
 #### Option A: Create Test Users via SQL (Recommended for Development)
+
 Use the helper SQL script to create test accounts directly:
 
 ```bash
@@ -17,15 +18,18 @@ cat utils/supabase/create-test-user.sql
 ```
 
 Or use the Supabase SQL Editor to run:
+
 ```sql
 -- See utils/supabase/create-test-user.sql for the full script
 ```
 
 **Test Accounts Created:**
+
 - Landlord: `landlord@demo.com` / `test1234`
 - Landlord: `landlord.test@example.com` / `password123`
 
 #### Option B: Disable Email Confirmation (Development Only)
+
 1. Go to your Supabase Dashboard
 2. Navigate to **Authentication** → **Settings**
 3. Under **Email Auth**, disable:
@@ -36,11 +40,14 @@ Or use the Supabase SQL Editor to run:
 This allows unlimited signups without email confirmation during development.
 
 #### Option C: Use Different Email Domains
+
 If rate limited, try using different email providers:
+
 - Use `+` addressing: `youremail+test1@gmail.com`, `youremail+test2@gmail.com`
 - Use different domains: `@gmail.com`, `@yahoo.com`, `@outlook.com`, `@example.com`
 
 #### Option D: Wait for Rate Limit Reset
+
 Supabase rate limits typically reset after 1 hour. You can wait and try again.
 
 ### 2. Image Loading Issues
@@ -48,6 +55,7 @@ Supabase rate limits typically reset after 1 hour. You can wait and try again.
 **Problem:** Property images from Supabase Storage return 400/404 errors.
 
 **Solution:**
+
 1. Verify the image paths in the database match the actual files in Storage
 2. Check that the `properties` bucket is public
 3. Ensure `next.config.ts` includes Supabase domains in `remotePatterns`
@@ -82,6 +90,7 @@ The app will be available at `http://localhost:3000` (or 3001 if 3000 is in use)
 ## Database Management
 
 ### Reset Database
+
 If you need to reset the database and start fresh:
 
 ```bash
@@ -90,16 +99,19 @@ If you need to reset the database and start fresh:
 ```
 
 ### Create Additional Test Properties
+
 Modify `utils/supabase/Insert.sql` and add more property entries, or create them via the landlord dashboard.
 
 ## Testing Different User Roles
 
 ### Landlord Features
+
 - Login as: `landlord.test@example.com` / `password123`
 - Access: `/landlord/dashboard`
 - Can create properties, view applications
 
 ### Tenant Features
+
 - Login as: `juan.ten@email.com` (no password - use SQL to set one)
 - Access: `/tenant/dashboard`
 - Can search properties, apply to properties
@@ -107,27 +119,31 @@ Modify `utils/supabase/Insert.sql` and add more property entries, or create them
 ## Useful SQL Queries
 
 ### List All Users
+
 ```sql
-SELECT id, email, raw_user_meta_data->>'role' as role 
-FROM auth.users 
+SELECT id, email, raw_user_meta_data->>'role' as role
+FROM auth.users
 ORDER BY created_at DESC;
 ```
 
 ### List All Profiles
+
 ```sql
-SELECT id, email, full_name, role 
-FROM profiles 
+SELECT id, email, full_name, role
+FROM profiles
 ORDER BY created_at DESC;
 ```
 
 ### List All Properties
+
 ```sql
-SELECT id, zone_name, details_json->>'price' as price, status 
-FROM properties 
+SELECT id, zone_name, details_json->>'price' as price, status
+FROM properties
 ORDER BY created_at DESC;
 ```
 
 ### Delete a Test User
+
 ```sql
 -- This will cascade delete the profile
 DELETE FROM auth.users WHERE email = 'test@example.com';
@@ -143,6 +159,7 @@ DELETE FROM auth.users WHERE email = 'test@example.com';
 ## Production Considerations
 
 Before deploying to production:
+
 1. ✅ Re-enable email confirmation in Supabase Auth
 2. ✅ Remove test accounts
 3. ✅ Set strong password requirements

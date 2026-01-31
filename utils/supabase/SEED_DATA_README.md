@@ -19,6 +19,7 @@ This guide explains how to populate your Choozify database with test data for de
 ```
 
 **Creates:**
+
 - 2 Landlords: Carlos, Ana
 - 3 Tenants: Juan, María, Luis
 - 5 Zones: Centro, Norte, Sur, Oeste, Providencia
@@ -34,6 +35,7 @@ This guide explains how to populate your Choozify database with test data for de
 ```
 
 **Adds:**
+
 - 3 More Properties (1 Oeste, 1 Sur, 1 Providencia)
 - 6 More Applications (various statuses)
 
@@ -42,17 +44,19 @@ This guide explains how to populate your Choozify database with test data for de
 ### Users Created
 
 #### Landlords:
-| Email | Full Name | Properties |
-|-------|-----------|------------|
+
+| Email                   | Full Name         | Properties   |
+| ----------------------- | ----------------- | ------------ |
 | `carlos.prop@email.com` | Carlos Arrendador | 3 properties |
-| `ana.prop@email.com` | Ana Inmobiliaria | 3 properties |
+| `ana.prop@email.com`    | Ana Inmobiliaria  | 3 properties |
 
 #### Tenants:
-| Email | Full Name | Income | Score | Employment |
-|-------|-----------|--------|-------|------------|
-| `juan.ten@email.com` | Juan Inquilino | $5,000 | 750 | Full-time |
-| `maria.ten@email.com` | Maria Prospecto | $2,500 | 680 | Contractor |
-| `luis.ten@email.com` | Luis Buscador | $1,800 | 620 | Part-time |
+
+| Email                 | Full Name       | Income | Score | Employment |
+| --------------------- | --------------- | ------ | ----- | ---------- |
+| `juan.ten@email.com`  | Juan Inquilino  | $5,000 | 750   | Full-time  |
+| `maria.ten@email.com` | Maria Prospecto | $2,500 | 680   | Contractor |
+| `luis.ten@email.com`  | Luis Buscador   | $1,800 | 620   | Part-time  |
 
 ### Properties Created (6 Total)
 
@@ -112,32 +116,32 @@ This guide explains how to populate your Choozify database with test data for de
 
 #### From Insert.sql (4 applications):
 
-| Tenant | Property | Zone | Status | Eligible? |
-|--------|----------|------|--------|-----------|
-| Juan | Carlos's Centro Apt | Centro | Submitted | ✅ Yes |
-| Maria | Ana's Sur Studio | Sur | Submitted | ✅ Yes |
-| Luis | Ana's Sur Studio | Sur | Submitted | ⚠️ Borderline |
-| Juan | Carlos's Norte Apt | Norte | Reviewing | ✅ Yes |
+| Tenant | Property            | Zone   | Status    | Eligible?     |
+| ------ | ------------------- | ------ | --------- | ------------- |
+| Juan   | Carlos's Centro Apt | Centro | Submitted | ✅ Yes        |
+| Maria  | Ana's Sur Studio    | Sur    | Submitted | ✅ Yes        |
+| Luis   | Ana's Sur Studio    | Sur    | Submitted | ⚠️ Borderline |
+| Juan   | Carlos's Norte Apt  | Norte  | Reviewing | ✅ Yes        |
 
 #### From seed-additional-properties.sql (6 applications):
 
-| Tenant | Property | Zone | Status | Eligible? | Notes |
-|--------|----------|------|--------|-----------|-------|
-| Maria | Ana's Oeste Home | Oeste | Submitted | ✅ Yes | Has pets, property allows |
-| Luis | Carlos's Sur Apt | Sur | Submitted | ✅ Yes | Meets minimum |
-| Maria | Carlos's Sur Apt | Sur | Reviewing | ✅ Yes | Already being reviewed |
-| Juan | Ana's Oeste Home | Oeste | Accepted | ✅ Yes | Already accepted! |
-| Juan | Ana's Providencia | Providencia | Submitted | ❌ No | Income too low |
-| Luis | Ana's Oeste Home | Oeste | Rejected | ❌ No | Income too low |
+| Tenant | Property          | Zone        | Status    | Eligible? | Notes                     |
+| ------ | ----------------- | ----------- | --------- | --------- | ------------------------- |
+| Maria  | Ana's Oeste Home  | Oeste       | Submitted | ✅ Yes    | Has pets, property allows |
+| Luis   | Carlos's Sur Apt  | Sur         | Submitted | ✅ Yes    | Meets minimum             |
+| Maria  | Carlos's Sur Apt  | Sur         | Reviewing | ✅ Yes    | Already being reviewed    |
+| Juan   | Ana's Oeste Home  | Oeste       | Accepted  | ✅ Yes    | Already accepted!         |
+| Juan   | Ana's Providencia | Providencia | Submitted | ❌ No     | Income too low            |
+| Luis   | Ana's Oeste Home  | Oeste       | Rejected  | ❌ No     | Income too low            |
 
 ### Zones Available
 
-| Zone Name | Location | Coordinates |
-|-----------|----------|-------------|
-| Centro | Bogotá Centro | -74.0820, 4.6100 |
-| Norte | Bogotá Norte | -74.0500, 4.7000 |
-| Sur | Bogotá Sur | -74.1210, 4.5810 |
-| Oeste | Bogotá Oeste | -74.1500, 4.6200 |
+| Zone Name   | Location        | Coordinates        |
+| ----------- | --------------- | ------------------ |
+| Centro      | Bogotá Centro   | -74.0820, 4.6100   |
+| Norte       | Bogotá Norte    | -74.0500, 4.7000   |
+| Sur         | Bogotá Sur      | -74.1210, 4.5810   |
+| Oeste       | Bogotá Oeste    | -74.1500, 4.6200   |
 | Providencia | Santiago, Chile | -70.6100, -33.4300 |
 
 ## Application Status Distribution
@@ -154,28 +158,33 @@ After running both seed files:
 ### Test Login Credentials
 
 **Landlord (Carlos):**
+
 - Email: `carlos.prop@email.com`
 - Has 3 properties
 - Has 5 applications to review
 
 **Landlord (Ana):**
+
 - Email: `ana.prop@email.com`
 - Has 3 properties
 - Has 5 applications to review
 
 **Tenant (Juan):**
+
 - Email: `juan.ten@email.com`
 - High income ($5,000)
 - Good score (750)
 - Has 4 applications
 
 **Tenant (María):**
+
 - Email: `maria.ten@email.com`
 - Medium income ($2,500)
 - Has pets
 - Has 3 applications
 
 **Tenant (Luis):**
+
 - Email: `luis.ten@email.com`
 - Low income ($1,800)
 - Has 3 applications (1 rejected)
@@ -195,13 +204,13 @@ After running both seed files:
 ### Check All Applications by Landlord
 
 ```sql
-SELECT 
+SELECT
     l.full_name AS landlord_name,
     p.zone_name,
     p.details_json->>'address' AS property_address,
     t.full_name AS tenant_name,
     a.status,
-    CASE 
+    CASE
         WHEN t.income >= (p.criteria_json->>'min_income')::numeric
              AND t.score >= (p.criteria_json->>'min_score')::numeric
         THEN '✅ Eligible'
@@ -217,7 +226,7 @@ ORDER BY l.full_name, a.status;
 ### Count Properties per Landlord
 
 ```sql
-SELECT 
+SELECT
     p.full_name AS landlord,
     p.email,
     COUNT(prop.id) AS property_count
@@ -230,7 +239,7 @@ GROUP BY p.id, p.full_name, p.email;
 ### Count Applications per Property
 
 ```sql
-SELECT 
+SELECT
     p.zone_name,
     p.details_json->>'address' AS address,
     COUNT(a.id) AS application_count,
@@ -247,6 +256,7 @@ ORDER BY application_count DESC;
 ### Problem: "duplicate key value violates unique constraint"
 
 **Solution:** You're trying to run the seed data again. Applications have a unique constraint on (tenant_id, property_id). Either:
+
 1. Delete existing data first
 2. Use `ON CONFLICT DO NOTHING` (already included in additional seeds)
 
@@ -257,6 +267,7 @@ ORDER BY application_count DESC;
 ### Problem: "Cannot find landlord/tenant"
 
 **Solution:** Check that profiles were created:
+
 ```sql
 SELECT id, email, full_name, role FROM profiles;
 ```

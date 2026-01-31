@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choozify - Marketplace inteligente que conecta arrendadores y arrendatarios con tecnología AI">
+    <title>Choozify - Encuentra tu hogar ideal con IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1>Choozify</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#properties">Propiedades</a></li>
+                <li><a href="#features">Características</a></li>
+                <li><a href="#how-it-works">Cómo Funciona</a></li>
+                <li><a href="#tech">Tecnología</a></li>
+                <li><a href="#contact" class="btn-nav">Contacto</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Properties Carousel Section - PRIMERA SECCIÓN -->
+    <section id="properties" class="properties-section">
+        <div class="container">
+            <h2 class="section-title">Propiedades Destacadas en El Salvador</h2>
+            <p class="section-subtitle">Descubre las mejores opciones disponibles en las zonas más exclusivas</p>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev" aria-label="Anterior">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop&q=80" 
+                                 alt="Casa frente al mar en Puerto de La Libertad" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Casa Frente al Mar</h3>
+                            <p class="property-location">📍 Puerto de La Libertad</p>
+                            <p class="property-details">$450/mes • 3 habitaciones • 2 baños • 120 m²</p>
+                            <a href="https://unsplash.com/photos/1600596542815" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop&q=80" 
+                                 alt="Apartamento moderno en Puerto de La Libertad" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Apartamento con Vista al Océano</h3>
+                            <p class="property-location">📍 Puerto de La Libertad</p>
+                            <p class="property-details">$350/mes • 2 habitaciones • 1 baño • 75 m²</p>
+                            <a href="https://unsplash.com/photos/1600585154340" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop&q=80" 
+                                 alt="Villa de lujo en La Escalón" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Villa de Lujo</h3>
+                            <p class="property-location">📍 La Escalón, San Salvador</p>
+                            <p class="property-details">$800/mes • 4 habitaciones • 3 baños • 200 m²</p>
+                            <a href="https://unsplash.com/photos/1600607687939" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop&q=80" 
+                                 alt="Casa moderna en La Escalón" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Casa Moderna con Jardín</h3>
+                            <p class="property-location">📍 La Escalón, San Salvador</p>
+                            <p class="property-details">$600/mes • 3 habitaciones • 2 baños • 150 m²</p>
+                            <a href="https://unsplash.com/photos/1600566753190" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=600&fit=crop&q=80" 
+                                 alt="Propiedad tipo resort en Santa Elena" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Propiedad Tipo Resort</h3>
+                            <p class="property-location">📍 Santa Elena, Cuscatlán</p>
+                            <p class="property-details">$550/mes • 3 habitaciones • 2 baños • 140 m²</p>
+                            <a href="https://unsplash.com/photos/1600607687644" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?w=800&h=600&fit=crop&q=80" 
+                                 alt="Cabaña ecológica en Santa Elena" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Cabaña Ecológica</h3>
+                            <p class="property-location">📍 Santa Elena, Cuscatlán</p>
+                            <p class="property-details">$250/mes • 2 habitaciones • 1 baño • 60 m²</p>
+                            <a href="https://unsplash.com/photos/1600585154084" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" aria-label="Siguiente">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+                <div class="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                    <span class="dot" data-slide="5"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Encuentra tu hogar ideal en <span class="highlight">El Salvador</span> con <span class="highlight">Inteligencia Artificial</span></h1>
+                <p class="hero-subtitle">Choozify conecta arrendadores y arrendatarios de manera inteligente, usando IA para hacer coincidir propiedades perfectas con inquilinos ideales en las mejores zonas del país.</p>
+                <div class="hero-buttons">
+                    <a href="#features" class="btn btn-primary">Descubre más</a>
+                    <a href="#how-it-works" class="btn btn-secondary">Ver demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="properties" class="properties-section">
+        <div class="container">
+            <h2 class="section-title">Propiedades Destacadas</h2>
+            <p class="section-subtitle">Descubre las mejores opciones disponibles en nuestra plataforma</p>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn prev" aria-label="Anterior">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                </button>
+                <div class="carousel-container">
+                    <div class="carousel-slide active">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=600&fit=crop&q=80" 
+                                 alt="Apartamento moderno en el centro" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Apartamento Moderno Downtown</h3>
+                            <p class="property-location">📍 Providencia, Santiago</p>
+                            <p class="property-details">$1,200/mes • 2 habitaciones • 1 baño • 65 m²</p>
+                            <a href="https://unsplash.com/photos/white-and-brown-wooden-house-near-green-trees-during-daytime-1522708323590" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop&q=80" 
+                                 alt="Casa espaciosa con jardín" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Casa Espaciosa Suburbana</h3>
+                            <p class="property-location">📍 Las Condes, Santiago</p>
+                            <p class="property-details">$1,800/mes • 3 habitaciones • 2 baños • 120 m²</p>
+                            <a href="https://unsplash.com/photos/white-wooden-house-with-brown-roof-1564013799919" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1512917774080-9b41b6b27ece?w=800&h=600&fit=crop&q=80" 
+                                 alt="Loft industrial moderno" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Loft Industrial Céntrico</h3>
+                            <p class="property-location">📍 Barrio Italia, Santiago</p>
+                            <p class="property-details">$950/mes • 1 habitación • 1 baño • 45 m²</p>
+                            <a href="https://unsplash.com/photos/white-wooden-table-and-chairs-1512917774080" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1570129477492-45a003537e1f?w=800&h=600&fit=crop&q=80" 
+                                 alt="Penthouse de lujo con vista" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Penthouse de Lujo</h3>
+                            <p class="property-location">📍 Vitacura, Santiago</p>
+                            <p class="property-details">$3,500/mes • 4 habitaciones • 3 baños • 200 m²</p>
+                            <a href="https://unsplash.com/photos/white-wooden-dining-table-set-1570129477492" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop&q=80" 
+                                 alt="Apartamento acogedor" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Apartamento Acogedor</h3>
+                            <p class="property-location">📍 Ñuñoa, Santiago</p>
+                            <p class="property-details">$850/mes • 2 habitaciones • 1 baño • 55 m²</p>
+                            <a href="https://unsplash.com/photos/white-wooden-table-1502672260266" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="property-image-wrapper">
+                            <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&h=600&fit=crop&q=80" 
+                                 alt="Estudio moderno" 
+                                 loading="lazy">
+                            <div class="property-overlay"></div>
+                        </div>
+                        <div class="property-info">
+                            <h3>Estudio Moderno</h3>
+                            <p class="property-location">📍 Bellavista, Santiago</p>
+                            <p class="property-details">$650/mes • Estudio • 1 baño • 35 m²</p>
+                            <a href="https://unsplash.com/photos/white-wooden-table-1493809842364" 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               class="property-link">Ver imagen original</a>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn next" aria-label="Siguiente">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+                <div class="carousel-dots">
+                    <span class="dot active" data-slide="0"></span>
+                    <span class="dot" data-slide="1"></span>
+                    <span class="dot" data-slide="2"></span>
+                    <span class="dot" data-slide="3"></span>
+                    <span class="dot" data-slide="4"></span>
+                    <span class="dot" data-slide="5"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Características Principales</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Asistente IA</h3>
+                    <p>Chatbot inteligente que entiende búsquedas en lenguaje natural. Di "Necesito un depa de 2 cuartos en Providencia por menos de $800" y encuentra resultados instantáneamente.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Coincidencias Inteligentes</h3>
+                    <p>Sistema de matching que conecta propiedades con inquilinos ideales basado en criterios específicos como ingresos, puntuación crediticia y preferencias.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Expansión Geo-Inteligente</h3>
+                    <p>Recibe notificaciones de oportunidades cercanas a tu zona preferida, incluso si están fuera de tu área exacta pero dentro de un radio configurable.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Dashboard para Arrendadores</h3>
+                    <p>Los propietarios pueden ver solicitantes que cumplen sus criterios, revisar aplicaciones y programar visitas de manera eficiente.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <h3>Perfiles Completos</h3>
+                    <p>Los arrendatarios pueden crear perfiles detallados con datos personales, ingresos y zonas preferidas para obtener mejores coincidencias.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔔</div>
+                    <h3>Notificaciones Inteligentes</h3>
+                    <p>Sistema de alertas que te notifica cuando hay coincidencias exactas o oportunidades cercanas a tu zona preferida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Cómo Funciona</h2>
+            <div class="workflow">
+                <div class="workflow-item">
+                    <div class="workflow-number">1</div>
+                    <div class="workflow-content">
+                        <h3>Para Arrendadores</h3>
+                        <ul>
+                            <li>Sube tu propiedad con criterios específicos</li>
+                            <li>Visualiza solicitantes que cumplen tus requisitos</li>
+                            <li>Revisa y acepta aplicaciones</li>
+                            <li>Programa visitas directamente</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-number">2</div>
+                    <div class="workflow-content">
+                        <h3>Para Arrendatarios</h3>
+                        <ul>
+                            <li>Crea tu perfil con datos e ingresos</li>
+                            <li>Define tus zonas preferidas</li>
+                            <li>Usa el chatbot IA para búsquedas naturales</li>
+                            <li>Recibe notificaciones de propiedades ideales</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-number">3</div>
+                    <div class="workflow-content">
+                        <h3>IA al Rescate</h3>
+                        <ul>
+                            <li>Búsqueda conversacional en lenguaje natural</li>
+                            <li>Matching automático de criterios</li>
+                            <li>Expansión geográfica inteligente</li>
+                            <li>Notificaciones contextuales</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Stack Section -->
+    <section id="tech" class="tech">
+        <div class="container">
+            <h2 class="section-title">Stack Tecnológico</h2>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-name">Next.js 14+</div>
+                    <p>App Router con TypeScript</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">Supabase</div>
+                    <p>PostgreSQL con PostGIS</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">OpenAI</div>
+                    <p>Vercel AI SDK</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">Tailwind CSS</div>
+                    <p>Shadcn UI</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">React Query</div>
+                    <p>State Management</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-name">React-Leaflet</div>
+                    <p>Mapas y Geolocalización</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>¿Listo para revolucionar el mercado inmobiliario?</h2>
+            <p>Únete a Choozify y experimenta el futuro de la búsqueda de propiedades</p>
+            <a href="#contact" class="btn btn-primary btn-large">Comenzar ahora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Choozify</h3>
+                    <p>Marketplace inteligente que conecta arrendadores y arrendatarios con tecnología de IA.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Proyecto</h4>
+                    <p>Desarrollado para Hackathon</p>
+                    <p>MVP - RentalMatch AI-Powered</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <p>Para más información sobre el proyecto</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Choozify. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

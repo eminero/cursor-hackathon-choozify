@@ -509,6 +509,177 @@ body {
     font-weight: bold;
 }
 
+/* Pricing Section */
+.pricing-section {
+    padding: 6rem 0;
+    background: var(--bg-white);
+}
+
+.pricing-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.pricing-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+.pricing-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pricing-column-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.pricing-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pricing-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--border-color);
+}
+
+.pricing-card-popular {
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.15);
+    background: linear-gradient(to bottom, rgba(99, 102, 241, 0.04) 0%, white 100%);
+}
+
+.pricing-card-popular:hover {
+    box-shadow: 0 12px 32px rgba(99, 102, 241, 0.2);
+}
+
+.pricing-badge {
+    display: inline-block;
+    background: var(--gradient);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.pricing-plan-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-price {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.pricing-purpose {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.pricing-features {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.25rem;
+}
+
+.pricing-features li {
+    padding: 0.35rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.pricing-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.pricing-card .btn {
+    width: 100%;
+    text-align: center;
+}
+
+.pricing-limitations {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: var(--bg-light);
+    border-radius: 8px;
+    line-height: 1.5;
+}
+
+.pricing-addons {
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.pricing-addons-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.pricing-addons-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem 2rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.pricing-addons-list li {
+    padding-left: 0;
+}
+
+.pricing-addons-list li::before {
+    content: none;
+}
+
 /* Tech Stack Section */
 .tech {
     padding: 6rem 0;
@@ -623,32 +794,32 @@ body {
     .carousel-container {
         height: 400px;
     }
-    
+
     .property-info {
         padding: 1.5rem;
     }
-    
+
     .property-info h3 {
         font-size: 1.5rem;
     }
-    
+
     .property-details {
         font-size: 1rem;
     }
-    
+
     .carousel-btn {
         width: 40px;
         height: 40px;
     }
-    
+
     .carousel-btn.prev {
         left: -20px;
     }
-    
+
     .carousel-btn.next {
         right: -20px;
     }
-    
+
     .carousel-btn svg {
         width: 20px;
         height: 20px;
@@ -659,28 +830,28 @@ body {
     .carousel-container {
         height: 350px;
     }
-    
+
     .property-info {
         padding: 1.25rem;
     }
-    
+
     .property-info h3 {
         font-size: 1.25rem;
     }
-    
+
     .property-details {
         font-size: 0.9rem;
     }
-    
+
     .carousel-btn {
         width: 35px;
         height: 35px;
     }
-    
+
     .carousel-btn.prev {
         left: -15px;
     }
-    
+
     .carousel-btn.next {
         right: -15px;
     }
@@ -716,7 +887,7 @@ body {
     .hero-subtitle {
         font-size: 1.1rem;
     }
-    
+
     .properties-section {
         margin-top: 70px;
         padding: 3rem 0 4rem;
@@ -733,6 +904,19 @@ body {
 
     .workflow-item:hover {
         transform: translateY(-5px);
+    }
+
+    .pricing-columns {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-section {
+        padding: 4rem 0;
+    }
+
+    .pricing-addons-list {
+        flex-direction: column;
+        align-items: center;
     }
 
     .cta h2 {
